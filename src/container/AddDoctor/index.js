@@ -4,17 +4,23 @@ import {Picker} from '@react-native-picker/picker';
 
 export default function AddDoctor() {
   const [isDropdownVisible, setisDropdownVisible] = useState(false);
+  const [speciality, setSpeciality] = useState('');
   return (
     <View style={{backgroundColor: '#fff', padding: 20}}>
       <TextInput placeholder="First Name" />
       <TextInput placeholder="Last Name" />
-      <TouchableOpacity onPress={() => setisDropdownVisible(!isDropdownVisible)}>
+      <TouchableOpacity
+        onPress={() => setisDropdownVisible(!isDropdownVisible)}>
         <Text>Speciality</Text>
       </TouchableOpacity>
 
       {isDropdownVisible ? (
         <View>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setSpeciality('cardiologist');
+              setisDropdownVisible(false);
+            }}>
             <Text>Cardiologist</Text>
           </TouchableOpacity>
           <TouchableOpacity>
